@@ -31,3 +31,29 @@ const data = {
          { producto: 'Gaseosa', precio: '$ 7', precio: '$ 10', button: 'Agregar'},
        ],
      };
+ ////////////////////////////////////
+
+ function App(props) {
+
+  return (
+  <div>
+    <header>
+      <h1>{props.headerTitulo}</h1>
+    </header>
+    <div>
+      <p>{props.mainSectionTitulo}</p>
+    </div>
+  </div>
+  );
+ }
+
+
+ReactDOM.render(
+  <App
+    headerTitulo={data.headerTitulo}
+    headerDescripcion={data.headerDescripcion}
+    mainSectionTitulo={data.mainSectionTitulo}
+    asideDesayuno={data.asideDesayuno}
+  />,
+  document.getElementById("react-container")
+);
