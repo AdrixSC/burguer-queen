@@ -93,3 +93,11 @@ Tu "Single page app" debe tener las siguientes características:
 * No es necesario implementar persistencia
 * No es necesario implementar conexiones remotas
 
+## Proceso
+
+* Crear el sketch de la aplicación
+* Identificar los modulos que se repiten en cada vista
+* Crear los componentes planeados
+* Hacer el proceso de npm (descargar las dependecias necesarias para el proyecto)
+* Unir los componentes en un solo JS con browserify, con el comando : ./node_modules/.bin/browserify js/app.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]
+

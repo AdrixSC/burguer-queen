@@ -1,59 +1,92 @@
-const data = {
-       headerTitulo: 'Burger Queen',
-       headerDescripcion: 'Desayuno',
-       mainSectionTitulo: 'Comida',
-       asideDesayuno:'Desayuno',
-       desayuno: [
-         { producto: 'Cafe Americano', precio: '$ 5', button: 'Agregar'},
-         { producto: 'Cafe conleche', precio: '$ 7', button: 'Agregar'},
-         { producto: 'Sandwich jamon con queso', precio: '$ 10', button: 'Agregar'},
-         { producto: 'Cafe conleche', precio: '$ 7', button: 'Agregar'}
-       ],
-       asideComidas: 'Hamburguesa',
-       comida: [
-         { producto: 'Res', precio: '$ 10', precio: '$ 15', button: 'Agregar'},
-         { producto: 'Pollo', precio: '$ 10', precio: '$ 15', button: 'Agregar'},
-         { producto: 'Vegetariana', precio: '$ 10', precio: '$ 15', button: 'Agregar'}
-       ],
-       asideExtras: 'Ingredientes extras',
-       extras: [
-         { producto: 'Huevo', precio: '$ 5', button: 'Agregar'},
-         { producto: 'Queso', precio: '$ 5', button: 'Agregar'},
-       ],
-       asideComplementos: 'Complementos',
-       complementos: [
-         { producto: 'Papas fritas', precio: '$ 5', button: 'Agregar'},
-         { producto: 'Onion Rings	', precio: '$ 5', button: 'Agregar'},
-       ],
-       asideBebidas: 'Bebidas',
-       bebidas: [
-         { producto: 'Agua', precio: '$ 5',precio: '$ 8', button: 'Agregar'},
-         { producto: 'Gaseosa', precio: '$ 7', precio: '$ 10', button: 'Agregar'},
-       ],
-     };
- ////////////////////////////////////
+import React from "react";
+import ReactDOM from "react-dom";
+import data from "./Data.js";
+import Title from "./Title.js";
+import Button from "./Button.js"
+//import Desayuno from "./Desayuno.js"
 
- function App(props) {
-
+function App(props) {
+//<Desayuno />
   return (
   <div>
-    <header>
-      <h1>{props.headerTitulo}</h1>
-    </header>
-    <div>
-      <p>{props.mainSectionTitulo}</p>
-    </div>
-  </div>
-  );
- }
+      <h1>{props.restaurante}</h1>
+      <h3>{props.titleDesayuno}</h3>
+      <div>
+        {props.alimentosDesayuno.map(function(desayuno){
+          return (<div>
+          <p>{desayuno.alimento}</p>
+          <p>{desayuno.precio}</p>
+            <Button />
+          </div>)
+  })}
+         </div>
+       <h3>{props.titleComida}</h3>
+      <h4>{props.subTitleHamburguer}</h4>
+     <div>
+        <p>{props.comida.Hamburguesas.map(function (hamburguer){
+         return (<div>
+           <p>{hamburguer.proteina}</p>
+           <p>{hamburguer.precioSencilla}</p>
+           <Button />
+           <p>{hamburguer.precioDoble}</p>
+           <Button />
+         </div>
+         )
+       })}
+       </p>
+     </div>
+     <h4>{props.subTitleComplementos}</h4>
+     <div>
+       <p>{props.comida.Complementos.map(function (complementos){
+         return (<div>
+           <p>{complementos.alimento}</p>
+           <p>{complementos.precio}</p>
+           <Button />
+         </div>
+         )
+       })}
+       </p>
+     </div>
+      <h4>{props.subTitleBebidas}</h4>
+      <div>
+        <p>{props.comida.Bebidas.map(function (bebidas) {
+          return (<div>
+            <p>{bebidas.alimento}</p>
+            <p>{bebidas.precio}</p>
+            <Button />
+          </div>
+          )
+        })}
+        </p>
+      </div>
+      <h4>{props.subTitleExtras}</h4>
+      <div>
+        <p>{props.comida.Extras.map(function (extras) {
+          return (<div>
+            <p>{extras.alimento}</p>
+            <p>{extras.precio}</p>
+            <Button />
+          </div>
+          )
+        })}
+        </p>
+      </div>
+   </div>
+  )
+}
 
 
 ReactDOM.render(
   <App
-    headerTitulo={data.headerTitulo}
-    headerDescripcion={data.headerDescripcion}
-    mainSectionTitulo={data.mainSectionTitulo}
-    asideDesayuno={data.asideDesayuno}
+    restaurante={data.nameRestaurant}
+    titleDesayuno={data.Titles[0]}
+    titleComida={data.Titles[1]}
+    alimentosDesayuno={data.Desayuno}
+    comida={data.Comida}
+    subTitleHamburguer={data.Subtitles[0]}
+    subTitleComplementos={data.Subtitles[1]}
+    subTitleBebidas={data.Subtitles[2]}
+    subTitleExtras={data.Subtitles[3]}
   />,
-  document.getElementById("react-container")
+  document.getElementById("container-react")
 );
