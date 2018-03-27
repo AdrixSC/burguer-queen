@@ -27,8 +27,8 @@ const data = {
             { alimento: "Gaseosa", precio: 7 }
         ],
         Extras: [
-            { alimento: "huevo", precio: 1 },
-            { alimento: "queso", precio: 1 }
+            { alimento: "Huevo", precio: 1 },
+            { alimento: "Queso", precio: 1 }
         ]
     }
 }
